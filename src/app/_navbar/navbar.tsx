@@ -22,7 +22,7 @@ const NavBar = () => {
           style={{ cursor: "pointer" }}
         >
           <Image
-            className="hover:opacity-80 sm:w-full h-[80px] sm:h-[100px]"
+            className="hover:opacity-80 sm:w-full h-[90px] sm:h-[100px]"
             src="/headernav.png"
             alt="Daily Blockchain Ph"
             width={700}
