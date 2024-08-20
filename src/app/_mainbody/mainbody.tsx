@@ -8,6 +8,7 @@ import {
 import useSWR from "swr";
 import { fetcher } from "../_components/ulits/fetcher";
 import Loader from "../loader";
+import { CryptoDescription } from "./cryptodescription";
 
 const MainBody = () => {
   const { data } = useSWR(`/api/cryptocurrencies`, fetcher);
@@ -22,7 +23,7 @@ const MainBody = () => {
           <AccordionItem key={index} value={`item-${index}`}>
             <AccordionTrigger>{item}</AccordionTrigger>
             <AccordionContent>
-              {item || "No description available."}
+              <CryptoDescription title={item} />
             </AccordionContent>
           </AccordionItem>
         ))}
