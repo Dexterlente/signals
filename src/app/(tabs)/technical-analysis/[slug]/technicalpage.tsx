@@ -40,6 +40,11 @@ const TechnicalPage = ({ params }: { params: { slug: string } }) => {
         content={data?.pm}
       />
       <AnalysisComponent
+        title={"2. Support and Resistance Levels"}
+        image={data?.srl_image_url}
+        content={data?.srl}
+      />
+      <AnalysisComponent
         title={"3. Moving Averages"}
         image={data?.ma_image_url}
         content={data?.ma}
