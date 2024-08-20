@@ -21,7 +21,7 @@ const MainBody = () => {
       <Accordion type="single" collapsible>
         {sortedData.map((item: any, index: any) => (
           <AccordionItem key={index} value={`item-${index}`}>
-            <AccordionTrigger>{item}</AccordionTrigger>
+            <AccordionTrigger className="pl-3">{item}</AccordionTrigger>
             <AccordionContent>
               <CryptoDescription title={item} />
             </AccordionContent>
