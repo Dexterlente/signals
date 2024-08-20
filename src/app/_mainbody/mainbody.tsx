@@ -7,21 +7,22 @@ import {
 } from "@/components/ui/accordion";
 import useSWR from "swr";
 import { fetcher } from "../_components/ulits/fetcher";
+import Loader from "../loader";
 
 const MainBody = () => {
   const { data } = useSWR(`/api/cryptocurrencies`, fetcher);
 
-  if (!data) return <div>Loading...</div>;
+  if (!data) return <Loader />;
   const sortedData = [...data].sort();
 
   return (
-    <div className="mx-2 mt-5">
+    <div className="mx-2 mt-5 my-10">
       <Accordion type="single" collapsible>
         {sortedData.map((item: any, index: any) => (
           <AccordionItem key={index} value={`item-${index}`}>
             <AccordionTrigger>{item}</AccordionTrigger>
             <AccordionContent>
-              {item.description || "No description available."}
+              {item || "No description available."}
             </AccordionContent>
           </AccordionItem>
         ))}
