@@ -25,7 +25,6 @@ const TechnicalPage = ({ params }: { params: { slug: string } }) => {
     return new Intl.DateTimeFormat("en-US", options).format(date);
   }
 
-  console.log(data);
   return (
     <div className="mx-6 2xl:mx-24">
       <div className="text-center text-2xl font-bold mt-10">
