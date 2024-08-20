@@ -11,11 +11,11 @@ export const CryptoDescription = ({ title }: any) => {
   if (!data) return <div>Loading...</div>;
 
   return (
-    <div className="cursor-pointer hover:underline">
+    <div className="ml-4 grid xl:grid-cols-2">
       {data.items.length > 0
         ? data.items.map((descItem: any, index: any) => (
-            <div key={index}>
-              {descItem.generate_tracker || "No description available."}
+            <div key={index} className="cursor-pointer hover:underline">
+              {descItem.generate_tracker || "No "} Technical Analysis
             </div>
           ))
         : "No description available."}
