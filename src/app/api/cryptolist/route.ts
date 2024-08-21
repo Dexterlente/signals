@@ -7,7 +7,7 @@
 //   const response = await axios.get(url);
 //   const data = response.data;
 //   return Response.json(data);
-}
+// }
 
 import axios from "axios";
 import { NextRequest, NextResponse } from "next/server";
