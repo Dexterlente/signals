@@ -11,7 +11,7 @@ import Loader from "../loader";
 import { CryptoDescription } from "./cryptodescription";
 
 const MainBody = () => {
-  const { data } = useSWR(`/api/cryptocurrencies`, fetcher);
+  const { data } = useSWR(`/api/cryptolist`, fetcher);
 
   if (!data) return <Loader />;
   const sortedData = [...data].sort();
