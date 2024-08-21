@@ -3,10 +3,7 @@ import { fetcher } from "../_components/ulits/fetcher";
 import { useRouter } from "next/navigation";
 
 export const CryptoDescription = ({ title }: any) => {
-  const { data, error } = useSWR(
-    `/api/cryptocurrencies/list/${title}`,
-    fetcher
-  );
+  const { data, error } = useSWR(`api/cryptocurrencies/list/${title}`, fetcher);
 
   const router = useRouter();
 
