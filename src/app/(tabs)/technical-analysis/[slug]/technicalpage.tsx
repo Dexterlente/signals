@@ -4,6 +4,7 @@ import React from "react";
 import useSWR from "swr";
 import Image from "next/image";
 import AnalysisComponent from "./analysiscomponent";
+import Loader from "@/app/loader";
 
 const TechnicalPage = ({ params }: { params: { slug: string } }) => {
   const { data, error } = useSWR(
@@ -24,6 +25,7 @@ const TechnicalPage = ({ params }: { params: { slug: string } }) => {
 
     return new Intl.DateTimeFormat("en-US", options).format(date);
   }
+  if (!data) return <Loader />;
 
   return (
     <div className="mx-6 2xl:mx-24">
