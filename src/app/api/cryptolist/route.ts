@@ -14,6 +14,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
   let url = `${process.env.API_URL}/signals/cryptolist`;
+  console.log("url", url);
 
   try {
     const response = await axios.get(url);
