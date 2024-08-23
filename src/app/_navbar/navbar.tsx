@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import Tabs from "./tabs";
 
 const NavBar = () => {
   const router = useRouter();
@@ -34,6 +35,7 @@ const NavBar = () => {
           </div>
         </div>
       </div>
+      <Tabs />
     </div>
   );
 };

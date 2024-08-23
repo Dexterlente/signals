@@ -11,7 +11,7 @@ export const CryptoDescription = ({ title }: any) => {
   const router = useRouter();
 
   if (error) return <div>Failed to load description</div>;
-  if (!data) return <div className="ml-3">Loading...</div>;
+  if (!data) return <div className="ml-10">Loading...</div>;
 
   return (
     <div className="grid xl:grid-cols-2 ml-10">
