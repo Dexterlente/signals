@@ -2,21 +2,32 @@ import React from "react";
 import DOMPurify from "dompurify";
 
 const HtmlContent = ({ html }: any) => {
-  // Function to remove unwanted patterns
   const cleanHtml = (htmlContent: string) => {
-    // Remove <pre> and </pre> tags along with their content
     const cleanedContent = htmlContent
       ?.replace(/<pre[^>]*>[\s\S]*?<\/pre>/gi, "") // Remove <pre> tags and their content
       ?.replace(/```/g, "") // Remove backticks
       ?.replace(/html/g, "") // Remove the word 'html'
       ?.replace(/<\/?body[^>]*>/gi, ""); // Remove <body> tags
 
-    return DOMPurify.sanitize(cleanedContent);
+    const withTailwind = cleanedContent
+      ?.replace(/<(\w+)(\s|>)/g, '<$1 class="mb-4"$2')
+      ?.replace(
+        /<h([1-6])([^>]*)class="([^"]*)"/g,
+        '<h$1$2class="$3 mb-6 font-bold"'
+      ) // Add font-bold to h1-h6 tags with existing classes
+      ?.replace(/<h([1-6])(\s|>)/g, '<h$1 class="mb-6 font-bold"$2'); // Add font-bold to h1-h6 tags without existing classes
+
+    return DOMPurify.sanitize(withTailwind);
   };
 
   const sanitizedHtml = cleanHtml(html);
 
-  return <div dangerouslySetInnerHTML={{ __html: sanitizedHtml }} />;
+  return (
+    <div
+      className="prose prose-lg mx-auto"
+      dangerouslySetInnerHTML={{ __html: sanitizedHtml }}
+    />
+  );
 };
 
 export default HtmlContent;
